@@ -1,0 +1,1860 @@
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/favicon.png" rel="apple-touch-icon">
+  <!-- Vendor CSS Files -->
+
+  <link href="assets/vendor/bootstrap/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/bs-select/css/bootstrap-select.css" rel="stylesheet">
+  <link href="assets/vendor/flags/css/flag-icons.min.css" rel="stylesheet">
+  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/outlineform.css" rel="stylesheet">
+  <link href="assets/css/sweet-alert.css" rel="stylesheet">
+  <link href="assets/css/persian-datepicker.css" rel="stylesheet">
+  <link href="assets/css/tranlate.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- gloabal loader -->
+  <div class="laoder" id="loader"></div>
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center header-scrolled">
+    <div class="d-flex align-items-center justify-content-between mx-3">
+      <a href="javascript:void(0)" class="logo d-flex align-items-center">
+        <span class="">user Details</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
+    &nbsp;&nbsp;&nbsp;
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+        <p style="margin: 0 auto;margin-left: 10px;">فعالسازی</p>
+        <input onclick="change_it()" type="checkbox">
+        <li class="nav-item dropdown">
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications" style="min-width:300px;max-height: 300px;overflow:auto;" id="notify_list">
+          </ul><!-- End Notification Dropdown Items -->
+        </li><!-- End Notification Nav -->
+        <li class="nav-item dropdown pe-3">
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="javascript:void(0)" data-bs-toggle="dropdown">
+            <img src="images/" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">arif</span>
+          </a>
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6>arif</h6>
+              <span>addmin</span>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="users-profile.php?uid=2">
+                    <i class="bi bi-person"></i>
+                    <span>پروفایل</span>
+                  </a>
+                </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="login.php?nope=yes">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>خروج</span>
+              </a>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+
+          </ul>
+        </li>
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="index.php" navid="home">
+          <i class="bi bi-grid"></i>
+          <span>داشبورد</span>
+        </a>
+      </li><li class="nav-item">
+        <a href="index.php" class="nav-link collapsed" navid="acount">
+          <i class="bi bi-people-fill"></i>
+          <span>کاربران</span>
+        </a>
+      </li>
+      
+
+
+
+      <li style="display: none;">
+        <a class="nav-link scrollto" href="javascript:void(0)"><span id="google_translate_element" style="display: block !important;"></span></a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-globe"></i><span>زبان</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="translation-links nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="javascript:void(0)" class="English" data-lang="English" da="en">
+              <i class="bi bi-circle"></i>
+              <span>انگلیسی</span>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" class="Persian" data-lang="Persian" da="fa">
+              <i class="bi bi-circle"></i>
+              <span>فارسی</span>
+            </a>
+          </li>
+
+        </ul>
+      </li> -->
+
+
+    </ul>
+
+  </aside><!-- End Sidebar-->
+
+
+
+  <!-- global alert -->
+  <div class="alert fade position-fixed " style="left:50%;top:70px;padding-left:50px;min-width:300px;transform:translateX(-50%);z-index: 10000;" id="alert">
+    <button type="button" class="btn-close position-absolute fs-4" style="left: 0px;top:0px;" data-bs-dismiss="alert" aria-label="Close"></button>
+    <div id="alert1">
+
+    </div>
+  </div>
+
+  <div id="here" class="position-fixed" style="right: 20px;left:20px;max-width:100%;z-index:1000000;">
+
+  </div>
+
+  <!-- min content starts -->
+  <main id="main" class="main">
+    <div class="pagetitle">
+      <h1 id="pagetitle"></h1>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+        </li>
+      </ol>
+    </div>
+
+<title navid="raft">لیست کاربران</title>
+<style>
+  .circle-image {
+    width: 40px;
+    /* Adjust size as needed */
+    height: 40px;
+    /* Adjust size as needed */
+    object-fit: cover;
+    /* Ensures the image covers the circle */
+    border-radius: 50%;
+    /* Makes the image circular */
+    border: 2px solid #ddd;
+    /* Optional: Adds a border around the circle */
+  }
+
+  /* Basic table styling */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+
+
+  /* Container for the custom dropdown */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    /* Adjust width to fit table cell */
+  }
+
+  /* Dropdown button */
+  .dropbtn {
+    background-color: #ddd;
+    color: white;
+    padding: 5px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    /* Full width to fit table cell */
+    text-align: center;
+  }
+
+  /* Dropdown content (hidden by default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ddd;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    width: 100%;
+    /* Full width to fit table cell */
+  }
+
+  /* Style the buttons inside the dropdown */
+  .dropdown-content button {
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 12px 16px;
+    text-align: center;
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+  }
+
+  .dropdown-content button:hover {
+    background-color: #f1f1f1;
+  }
+
+  /* Show the dropdown content when clicking on the dropdown button */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+  }
+
+  td,
+  th {
+
+    padding: 10px;
+    text-align: center;
+
+    vertical-align: middle;
+    /* Vertical alignment */
+  }
+</style>
+
+<div class="my-2 " style="text-align: left;">
+
+
+
+  <button type="button" class="btn btn-primary " onclick="sethoia()" data-bs-toggle="modal" data-bs-target="#modal1">
+    <span class="bi bi-cloud-plus fs-5 me-1"></span>افزودن کاربر
+  </button>
+
+</div>
+<section class="section">
+  <div class="card">
+    <div class="card-body">
+
+      <div id="myTable"><div class="table-responsive">
+    <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns"><div class="dataTable-top"><div class="dataTable-dropdown"><label><select class="dataTable-selector"><option value="5">5</option><option value="10" selected="">10</option><option value="2000">15</option><option value="20">20</option><option value="25">25</option></select> سطر ها</label></div><div class="dataTable-search"><input class="dataTable-input" placeholder="Search..." type="text"></div></div><div class="dataTable-container"><table class="table tabl-sm datatable dataTable-table">
+      <thead>
+        <tr><th data-sortable="" style="width: 3.00698%;"><a href="#" class="dataTable-sorter"># </a></th><th data-sortable="" style="width: 9.16413%;"><a href="#" class="dataTable-sorter">uuid</a></th><th data-sortable="" style="width: 7.66064%;" class="asc"><a href="#" class="dataTable-sorter">الامانة</a></th><th data-sortable="" style="width: 7.30267%;"><a href="#" class="dataTable-sorter">البلدية</a></th><th data-sortable="" style="width: 21.1921%;"><a href="#" class="dataTable-sorter">الاسم</a></th><th data-sortable="" style="width: 7.58905%;"><a href="#" class="dataTable-sorter">رقم الهوية</a></th><th data-sortable="" style="width: 7.37426%;"><a href="#" class="dataTable-sorter">الجنس</a></th><th data-sortable="" style="width: 5.79918%;"><a href="#" class="dataTable-sorter">الجنسية</a></th><th data-sortable="" style="width: 10.954%;"><a href="#" class="dataTable-sorter">رقم الشهادة الصحية</a></th><th data-sortable="" style="width: 9.30732%;"><a href="#" class="dataTable-sorter">الصورة <br>الرمزية</a></th><th data-sortable="" style="width: 5.01163%;"><a href="#" class="dataTable-sorter">المهنة</a></th><th data-sortable="" style="width: 5.5128%;"><a href="#" class="dataTable-sorter">عملية</a></th></tr>
+      </thead>
+      <tbody><tr><td>3</td><td>BuvagaVVYBgf</td><td>أمانة المنطقة الشرقية</td><td>بلدية رأس تنورة</td><td>RABIUL RESOT ALI RAMUJA</td><td>2530960380</td><td>ذكر </td><td>بنجلاديش</td><td>460588034188</td><td>عامل</td><td><a href="assets/files/1736138505.png" target="_blank"><img src="assets/files/1736138505.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=BuvagaVVYBgf')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20501')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20501')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=BuvagaVVYBgf';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20501)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20501';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20501';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20501)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>4</td><td>5OwsPZXRcu3q</td><td>أمانة المنطقة الشرقية</td><td>بلدية وسط الدمام</td><td>MD FOZLEY RABBI RAQUIB</td><td>2543401091</td><td>ذكر </td><td>بنجلاديش</td><td>460587974995</td><td>عامل تنظيف مكاتب ومنشآت</td><td><a href="assets/files/1736138610.png" target="_blank"><img src="assets/files/1736138610.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=5OwsPZXRcu3q')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20500')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20500')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=5OwsPZXRcu3q';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20500)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20500';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20500';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20500)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>5</td><td>rc20vES0OYGf</td><td>أمانة المنطقة الشرقية</td><td>بلدية وسط الدمام</td><td>GOLAM RASUL</td><td>2404702272</td><td>ذكر </td><td>بنجلاديش</td><td>460587915802</td><td>عامل</td><td><a href="assets/files/1736138677.png" target="_blank"><img src="assets/files/1736138677.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=rc20vES0OYGf')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20499')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20499')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=rc20vES0OYGf';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20499)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20499';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20499';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20499)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>6</td><td>0UN35FNcayWa</td><td>أمانة المنطقة الشرقية</td><td>بلدية وسط الدمام</td><td>ABDUL MOIZ KALEEM</td><td>۲٤١٧٢٨٣٤٣٥</td><td>2417283435</td><td>الهند</td><td>460587797416</td><td>عامل</td><td><a href="assets/files/1736138858.png" target="_blank"><img src="assets/files/1736138858.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=0UN35FNcayWa')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20497')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20497')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=0UN35FNcayWa';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20497)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20497';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20497';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20497)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>7</td><td>ZhS4YNESSdvK</td><td>أمانة المنطقة الشرقية</td><td>بلدية رأس تنورة</td><td>HAQUE MIA</td><td>2591130543</td><td>ذكر </td><td>بنجلاديش</td><td>460587738223</td><td>عامل تحميل وتنزيل</td><td><a href="assets/files/1736094017.png" target="_blank"><img src="assets/files/1736094017.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=ZhS4YNESSdvK')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20496')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20496')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=ZhS4YNESSdvK';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20496)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20496';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20496';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20496)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>8</td><td>tagHRebjBqcp</td><td>أمانة المنطقة الشرقية</td><td>بلدية رأس تنورة</td><td>ANISUR RAHMAN</td><td>2567448754</td><td>ذكر </td><td>بنجلاديش</td><td>460587619837</td><td>عامل تحميل وتنزيل </td><td><a href="assets/files/1736094184.png" target="_blank"><img src="assets/files/1736094184.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=tagHRebjBqcp')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20494')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20494')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=tagHRebjBqcp';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20494)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20494';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20494';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20494)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>9</td><td>zVjyly8SqgAd</td><td>أمانة المنطقة الشرقية</td><td>بلدية وسط الدمام</td><td>MUNAVVAR MUTHANIKKAT KUNHIMOHAMED MUTHANIKKAT</td><td>2482409410</td><td>ذكر </td><td>الهند</td><td>460587442258</td><td>عامل عادي</td><td><a href="assets/files/1736051781.png" target="_blank"><img src="assets/files/1736051781.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=zVjyly8SqgAd')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20493')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20493')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=zVjyly8SqgAd';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20493)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20493';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20493';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20493)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>10</td><td>Zduw0QM05Pvk</td><td>أمانة المنطقة الشرقية</td><td>بلدية محافظة الخبر</td><td>OULHUSCAN-ALIHASSAN</td><td>2179683335</td><td>ذكر </td><td>الفغانستان</td><td>460587264679</td><td>الخباز</td><td><a href="assets/files/1736052061.png" target="_blank"><img src="assets/files/1736052061.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=Zduw0QM05Pvk')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20490')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20490')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=Zduw0QM05Pvk';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20490)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20490';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20490';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20490)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>11</td><td>LAv4f5IYMKWf</td><td>أمانة المنطقة الشرقية</td><td>بلدية شرق الدمام</td><td>سليمان ناجي احمد محمد الغراب</td><td>2556843577</td><td>ذكر </td><td>اليمن</td><td>460587205486</td><td>عامل بناء</td><td><a href="assets/files/1736052153.png" target="_blank"><img src="assets/files/1736052153.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=LAv4f5IYMKWf')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20489')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20489')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=LAv4f5IYMKWf';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20489)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20489';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20489';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20489)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>12</td><td>Ibm5XHdbffmK</td><td>أمانة المنطقة الشرقية</td><td>بلدية شرق الدمام</td><td>مرسل علي محسن الشامي</td><td>2265465704</td><td>ذكر </td><td>اليمن</td><td>460587146293</td><td>عامل تحميل وتنزيل</td><td><a href="assets/files/1736052216.png" target="_blank"><img src="assets/files/1736052216.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=Ibm5XHdbffmK')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20488')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20488')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=Ibm5XHdbffmK';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20488)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20488';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20488';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20488)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>13</td><td>8iQi4Wsly5da</td><td>أمانة المنطقة الشرقية</td><td>بلدية وسط الدمام</td><td>JAFFER MANNANTHALA</td><td>2526484486</td><td>ذكر </td><td>الهند</td><td>460587087100</td><td>عامل</td><td><a href="assets/files/1736052306.png" target="_blank"><img src="assets/files/1736052306.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=8iQi4Wsly5da')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20487')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20487')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=8iQi4Wsly5da';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20487)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20487';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20487';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20487)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>14</td><td>QPJfCCdQ00K9</td><td>أمانة المنطقة الشرقية</td><td>بلدية وسط الدمام</td><td>MOHAMMAD RASHID A MOHAMMAD SHAFI</td><td>2546918067</td><td>ذكر </td><td>الهند</td><td>460587027907</td><td>عامل تحميل وتنزيل</td><td><a href="assets/files/1736052424.png" target="_blank"><img src="assets/files/1736052424.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=QPJfCCdQ00K9')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20486')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20486')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=QPJfCCdQ00K9';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20486)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20486';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20486';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20486)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>15</td><td>vhYaZ8fkR4dp</td><td>أمانة المنطقة الشرقية</td><td>بلدية وسط الدمام</td><td>MEHBOOBULJUQ ABDULLATIF</td><td>2138928573</td><td>ذکر</td><td>بنجلاديش</td><td>460586968714</td><td>طاهي</td><td><a href="assets/files/1735967276.png" target="_blank"><img src="assets/files/1735967276.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=vhYaZ8fkR4dp')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20485')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20485')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=vhYaZ8fkR4dp';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20485)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20485';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20485';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20485)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>16</td><td>w8mKjfrbK6Qf</td><td>أمانة المنطقة الشرقية</td><td>بلدية وسط الدمام</td><td>SADARUDHEEN VATTIYAMVEETTIL</td><td>2195425778</td><td>ذکر</td><td>الهند</td><td>460586909521</td><td>عامل تحميل وتنزيل</td><td><a href="assets/files/1735967154.png" target="_blank"><img src="assets/files/1735967154.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=w8mKjfrbK6Qf')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20484')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20484')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=w8mKjfrbK6Qf';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20484)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20484';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20484';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20484)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>17</td><td>85JSHC1hJQGQ</td><td>أمانة المنطقة الشرقية</td><td>بلدية شرق الدمام</td><td>MUHAMMAD IRFAN FAROOQ HUSSAIN</td><td>2472137690</td><td>ذكر </td><td>باكستان</td><td>460586850328</td><td>عامل مطبخ</td><td><a href="assets/files/1735966657.png" target="_blank"><img src="assets/files/1735966657.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=85JSHC1hJQGQ')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20483')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20483')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=85JSHC1hJQGQ';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20483)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20483';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20483';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20483)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>18</td><td>xTMimHZvXeZP</td><td>أمانة المنطقة الشرقية</td><td>بلدية شرق الدمام</td><td>MUHAMMAD QASIM IQBAL MUHAMMAD IQBAL</td><td>2495459675</td><td>ذكر </td><td>باكستان</td><td>460586791135</td><td>مبلط</td><td><a href="assets/files/1735966735.png" target="_blank"><img src="assets/files/1735966735.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=xTMimHZvXeZP')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20482')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20482')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=xTMimHZvXeZP';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20482)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20482';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20482';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20482)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>19</td><td>kPaupISUIoCZ</td><td>أمانة المنطقة الشرقية</td><td>بلدية شرق الدمام</td><td>SAQIB MANSHAD AWAN MANSHAD AHMED</td><td>258224339</td><td>ذکر</td><td>پاکستان</td><td>460586731942</td><td>عامل تحميل وتنزيل</td><td><a href="assets/files/1735966885.png" target="_blank"><img src="assets/files/1735966885.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=kPaupISUIoCZ')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20481')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20481')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=kPaupISUIoCZ';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20481)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20481';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20481';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20481)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>20</td><td>x3SCHtxM0SLQ</td><td>أمانة المنطقة الشرقية</td><td>بلدية رأس تنورة</td><td>MD KAWSAR</td><td>2576083410</td><td>ذکر</td><td>بنجلاديش</td><td>460586672749</td><td>عامل مطبخ</td><td><a href="assets/files/1735966978.png" target="_blank"><img src="assets/files/1735966978.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=x3SCHtxM0SLQ')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20480')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20480')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=x3SCHtxM0SLQ';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20480)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20480';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20480';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20480)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>21</td><td>i6tfXsVP5W9F</td><td>أمانة المنطقة الشرقية</td><td>بلدية رأس تنورة</td><td>SHADAT HOSSAIN</td><td>2576083162</td><td>ذکر</td><td>بنجلاديش</td><td>460586613556</td><td>عامل مطبخ</td><td><a href="assets/files/1735967034.png" target="_blank"><img src="assets/files/1735967034.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=i6tfXsVP5W9F')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20479')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20479')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=i6tfXsVP5W9F';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20479)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20479';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20479';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20479)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>22</td><td>TnIMVp9QQTNj</td><td>أمانة المنطقة الشرقية</td><td>بلدية رأس تنورة</td><td>RAMAZAN ZAWAR SHAH</td><td>2135301220</td><td>ذکر</td><td>افغانستان</td><td>460586495170</td><td> عامل</td><td><a href="assets/files/1735966274.png" target="_blank"><img src="assets/files/1735966274.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=TnIMVp9QQTNj')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20477')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20477')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=TnIMVp9QQTNj';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20477)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20477';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20477';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20477)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>23</td><td>4wlfHWdWuPb0</td><td>أمانة المنطقة الشرقية</td><td>بلدية محافظة الخبر</td><td>يونس عبدربه محمد سعيد الاحمدي</td><td>2357772348</td><td>ذكر </td><td>اليمن</td><td>460445355921</td><td>عامل عادي</td><td><a href="assets/files/1735840171.png" target="_blank"><img src="assets/files/1735840171.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=4wlfHWdWuPb0')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20476')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20476')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=4wlfHWdWuPb0';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20476)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20476';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20476';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20476)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>24</td><td>6IBibFiuVqcv</td><td>أمانة المنطقة الشرقية</td><td>بلدية محافظة الخبر</td><td>HAMZAH ATEQ MAHDI AL AHMADI</td><td>2475254203</td><td>ذکر</td><td>اليمن</td><td>460586435977</td><td>عامل عادي</td><td><a href="assets/files/1735840233.png" target="_blank"><img src="assets/files/1735840233.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=6IBibFiuVqcv')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20475')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20475')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=6IBibFiuVqcv';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20475)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20475';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20475';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20475)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>25</td><td>BhtcC0i4FqO9</td><td>أمانة المنطقة الشرقية</td><td>بلدية محافظة الخبر</td><td>سالم سعيد علي الاحمدي</td><td>2490406200</td><td>ذكر </td><td>اليمن</td><td>460586317591</td><td>عامل تحميل وتنزيل</td><td><a href="assets/files/1735840331.png" target="_blank"><img src="assets/files/1735840331.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=BhtcC0i4FqO9')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20473')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20473')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=BhtcC0i4FqO9';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20473)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20473';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20473';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20473)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>26</td><td>Ua7fz5uVBw3R</td><td>أمانة المنطقة الشرقية</td><td>بلدية محافظة الخبر</td><td>MOHAMMAD FARVEZ SHOHID ULLAH</td><td>2489484334</td><td>ذکر</td><td>بنجلاديش</td><td>460586258398</td><td>عامل عادي</td><td><a href="assets/files/1735840371.png" target="_blank"><img src="assets/files/1735840371.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=Ua7fz5uVBw3R')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20472')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20472')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=Ua7fz5uVBw3R';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20472)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20472';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20472';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20472)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>27</td><td>rTyuGIUvrrtV</td><td>أمانة المنطقة الشرقية</td><td>بلدية محافظة الخبر</td><td>احمد عاتق مهدي أحمد</td><td>2269317224</td><td>ذكر </td><td>اليمن</td><td>460586199205</td><td>اختصاصي تسويق</td><td><a href="assets/files/1735840423.png" target="_blank"><img src="assets/files/1735840423.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=rTyuGIUvrrtV')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20471')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20471')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=rTyuGIUvrrtV';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20471)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20471';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20471';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20471)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>28</td><td>Y9TGazvn06T4</td><td>أمانة المنطقة الشرقية</td><td>بلدية شرق الدمام</td><td>AKASH AHMAD ASHFAQ HUSSAIN</td><td>2570352134</td><td>ذكر </td><td>باكستان</td><td>460586080819</td><td>عامل تحميل وتنزيل</td><td><a href="assets/files/1735839952.png" target="_blank"><img src="assets/files/1735839952.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=Y9TGazvn06T4')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20469')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20469')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=Y9TGazvn06T4';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20469)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20469';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20469';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20469)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>29</td><td>sPN2equifTTn</td><td>أمانة المنطقة الشرقية</td><td>بلدية وسط الدمام</td><td>ABDUL AZEEZ ARAKKUTH</td><td>2530204789</td><td>ذكر </td><td>الهند</td><td>460585962433</td><td>عامل تحميل وتنزيل</td><td><a href="assets/files/1735828801.png" target="_blank"><img src="assets/files/1735828801.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=sPN2equifTTn')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20467')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20467')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=sPN2equifTTn';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20467)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20467';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20467';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20467)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>30</td><td>jt5qcawZh31o</td><td>أمانة المنطقة الشرقية</td><td>بلدية وسط الدمام</td><td>SHINIL KANIPARAMBIL</td><td>2528223890</td><td>ذكر </td><td>الهند</td><td>460585903240</td><td>عامل تحميل وتنزيل</td><td><a href="assets/files/1735828918.png" target="_blank"><img src="assets/files/1735828918.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=jt5qcawZh31o')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20466')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20466')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=jt5qcawZh31o';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20466)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20466';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20466';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20466)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>31</td><td>yTk86qPue6uo</td><td>أمانة المنطقة الشرقية</td><td>بلدية محافظة الخبر</td><td>احمد عينيه</td><td>4797899053 </td><td>ذكر </td><td>سوريا</td><td>460585844047</td><td>عامل</td><td><a href="assets/files/1735829033.png" target="_blank"><img src="assets/files/1735829033.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=yTk86qPue6uo')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20465')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20465')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=yTk86qPue6uo';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20465)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20465';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20465';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20465)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>32</td><td>Xq7AEjbgg1y5</td><td>أمانة المنطقة الشرقية</td><td>بلدية رأس تنورة</td><td>MD SHARIF</td><td>2542825480</td><td>ذكر </td><td>بنجلاديش</td><td>460585784854</td><td>عامل تحميل وتنزيل</td><td><a href="assets/files/1735757318.png" target="_blank"><img src="assets/files/1735757318.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=Xq7AEjbgg1y5')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20464')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20464')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=Xq7AEjbgg1y5';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20464)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20464';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20464';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20464)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>33</td><td>wesO2gBd4XmH</td><td>أمانة المنطقة الشرقية</td><td>بلدية رأس تنورة</td><td>ROBEUL AWAL</td><td>2509093585</td><td>ذكر </td><td>بنجلاديش</td><td>460585725661</td><td>عامل عادي</td><td><a href="assets/files/1735757368.png" target="_blank"><img src="assets/files/1735757368.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=wesO2gBd4XmH')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20463')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20463')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=wesO2gBd4XmH';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20463)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20463';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20463';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20463)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>34</td><td>BZtLPyExSq64</td><td>أمانة المنطقة الشرقية</td><td>بلدية رأس تنورة</td><td>MIZANUR RAHMAN</td><td>2452674100</td><td>ذكر </td><td>بنجلاديش</td><td>460585666468</td><td>عامل بناء</td><td><a href="assets/files/1735757414.png" target="_blank"><img src="assets/files/1735757414.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=BZtLPyExSq64')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20462')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20462')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=BZtLPyExSq64';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20462)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20462';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20462';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20462)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>35</td><td>5iw7x8Ggwtqi</td><td>أمانة المنطقة الشرقية</td><td>بلدية وسط الدمام</td><td>SUMON MOFIJUL ISLAM</td><td>2525150849</td><td>ذكر </td><td>بنجلاديش</td><td>460445355999</td><td>عامل عادي</td><td><a href="assets/files/1735757544.png" target="_blank"><img src="assets/files/1735757544.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=5iw7x8Ggwtqi')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20461')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20461')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=5iw7x8Ggwtqi';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20461)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20461';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20461';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20461)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>36</td><td>seh4AsHaDNUY</td><td>أمانة المنطقة الشرقية</td><td>بلدية رأس تنورة</td><td>NESAR AHMMOD</td><td>2591312000</td><td>ذكر </td><td>بنجلاديش</td><td>460585548082</td><td>عامل مطبخ</td><td><a href="assets/files/1735840649.png" target="_blank"><img src="assets/files/1735840649.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=seh4AsHaDNUY')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20459')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20459')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=seh4AsHaDNUY';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20459)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20459';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20459';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20459)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>37</td><td>AAedyaWtQOBM</td><td>أمانة المنطقة الشرقية</td><td>بلدية شرق الدمام</td><td>SHAHJAD ALI ABDUL MAJEET</td><td>2524856289</td><td>ذكر </td><td>الهند</td><td>460585488889</td><td>عامل تعبئة رفوف</td><td><a href="assets/files/1735752408.png" target="_blank"><img src="assets/files/1735752408.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=AAedyaWtQOBM')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20458')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20458')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=AAedyaWtQOBM';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20458)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20458';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20458';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20458)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>38</td><td>xADEEjcXkemF</td><td>أمانة المنطقة الشرقية</td><td>بلدية محافظة الخبر</td><td>KAZI MD OMER FARUK</td><td>2584062646</td><td>ذكر </td><td>بنجلاديش</td><td>460585429696</td><td>عامل تحميل وتنزيل</td><td><a href="assets/files/1735752527.png" target="_blank"><img src="assets/files/1735752527.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=xADEEjcXkemF')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20457')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20457')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=xADEEjcXkemF';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20457)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20457';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20457';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20457)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>39</td><td>Di7v0o7defPs</td><td>أمانة المنطقة الشرقية</td><td>بلدية وسط الدمام</td><td>PRAJEESH PANTHROLIL APPUNNI</td><td>2513437422</td><td>ذكر </td><td>الهند</td><td>460585370503</td><td>عامل تعبئة رفوف</td><td><a href="assets/files/1735752616.png" target="_blank"><img src="assets/files/1735752616.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=Di7v0o7defPs')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20456')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20456')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=Di7v0o7defPs';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20456)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20456';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20456';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20456)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>40</td><td>uMM2NpN36VJ9</td><td>أمانة المنطقة الشرقية</td><td>بلدية رأس تنورة</td><td>SHAHRIAR HASAN</td><td>2562116000</td><td>ذكر </td><td>بنجلاديش</td><td>460585252117</td><td>عامل مطبخ</td><td><a href="assets/files/1735752818.png" target="_blank"><img src="assets/files/1735752818.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=uMM2NpN36VJ9')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20454')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20454')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=uMM2NpN36VJ9';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20454)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20454';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20454';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20454)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>41</td><td>eCCDnGR0NqCh</td><td>أمانة المنطقة الشرقية</td><td>بلدية رأس تنورة</td><td>ABDUL HAMID ABDUL HANNAN</td><td>2479650216</td><td>ذكر </td><td>بنجلاديش</td><td>460585192924</td><td>عامل عادي</td><td><a href="assets/files/1735752868.png" target="_blank"><img src="assets/files/1735752868.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=eCCDnGR0NqCh')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20453')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20453')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=eCCDnGR0NqCh';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20453)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20453';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20453';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20453)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>42</td><td>bYH3HgOYnhY1</td><td>أمانة المنطقة الشرقية</td><td>بلدية رأس تنورة</td><td>KAWSAR HOSSAIN</td><td>2562174413</td><td>ذكر </td><td>بنجلاديش</td><td>460585133731</td><td>عامل محطة وقود</td><td><a href="assets/files/1735752961.png" target="_blank"><img src="assets/files/1735752961.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=bYH3HgOYnhY1')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20452')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20452')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=bYH3HgOYnhY1';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20452)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20452';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20452';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20452)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>43</td><td>ZhWS8cQ9zyMA</td><td>أمانة المنطقة الشرقية</td><td>بلدية وسط الدمام</td><td>ABDUL BASHEER PULIKKAL</td><td>27590994477</td><td>ذكر </td><td>الهند</td><td>460584364222</td><td>معد وجبات سريعة</td><td><a href="assets/files/1735550044.png" target="_blank"><img src="assets/files/1735550044.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=ZhWS8cQ9zyMA')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20439')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20439')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=ZhWS8cQ9zyMA';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20439)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20439';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20439';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20439)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>44</td><td>RgKm5X1BXBMP</td><td>أمانة المنطقة الشرقية</td><td>بلدية غرب الدمام</td><td>SAHALABATH BIRMINADKA ABDULKHADER</td><td>2558836280</td><td>ذكر </td><td>الهند</td><td>460584186643</td><td>عامل تنظيف مكاتب ومنشآت</td><td><a href="assets/files/1735550272.png" target="_blank"><img src="assets/files/1735550272.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=RgKm5X1BXBMP')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20436')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20436')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=RgKm5X1BXBMP';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20436)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20436';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20436';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20436)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>45</td><td>3XIY1bw5v7Ga</td><td>أمانة المنطقة الشرقية</td><td>بلدية غرب الدمام</td><td>ABDUL MUNAVAR MEHROOF</td><td>2522478334</td><td>ذكر </td><td>الهند</td><td>460584127450</td><td>عامل تعبئة رفوف</td><td><a href="assets/files/1735550334.png" target="_blank"><img src="assets/files/1735550334.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=3XIY1bw5v7Ga')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20435')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20435')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=3XIY1bw5v7Ga';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20435)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20435';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20435';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20435)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>46</td><td>L4jaIllZxG6j</td><td>أمانة المنطقة الشرقية</td><td>بلدية وسط الدمام</td><td>MOOSA PULIYANCHALI</td><td>2210067936</td><td>ذكر </td><td>الهند</td><td>460583653906</td><td>عامل صيد أسماك</td><td><a href="assets/files/1735551095.png" target="_blank"><img src="assets/files/1735551095.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=L4jaIllZxG6j')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20427')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20427')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=L4jaIllZxG6j';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20427)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20427';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20427';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20427)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>47</td><td>UUSXBhc0fioo</td><td>أمانة المنطقة الشرقية</td><td>بلدية وسط الدمام</td><td>FARUK HOSSAIN</td><td>2537877579</td><td>ذكر </td><td>بنجلاديش</td><td>460583476327</td><td>عامل تعبئة رفوف</td><td><a href="assets/files/1735551408.png" target="_blank"><img src="assets/files/1735551408.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=UUSXBhc0fioo')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20424')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20424')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=UUSXBhc0fioo';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20424)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20424';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20424';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20424)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>48</td><td>TozZ8bR6vsRD</td><td>أمانة المنطقة الشرقية</td><td>بلدية وسط الدمام</td><td>YOOSAF- SHAJI</td><td>2124567492</td><td>ذكر </td><td>الهند</td><td>460482428689</td><td>بائع</td><td><a href="assets/files/1735320774.png" target="_blank"><img src="assets/files/1735320774.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=TozZ8bR6vsRD')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20414')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20414')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=TozZ8bR6vsRD';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20414)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20414';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20414';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20414)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>49</td><td>L6wfF6mnLZIU</td><td>أمانة المنطقة الشرقية</td><td>بلدية وسط الدمام</td><td>MOAZZEM - - ISHQUE</td><td>2189178151</td><td>ذكر </td><td>بنجلاديش</td><td>460482369496</td><td>عامل تحميل وتنزيل</td><td><a href="assets/files/1735320814.png" target="_blank"><img src="assets/files/1735320814.png" class="circle-image" alt=""></a></td><td>
+               
+               
+               <!-- Custom dropdown within a table cell -->
+                
+                
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=L6wfF6mnLZIU')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20413')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20413')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=L6wfF6mnLZIU';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20413)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20413';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20413';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20413)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>50</td><td>mQlTSE9znpPw</td><td>أمانة المنطقة الشرقية</td><td>بلدية وسط الدمام</td><td>MD RIDUL FOUZADAR</td><td>2546553963</td><td>ذكر </td><td>بنجلاديش</td><td>460482251110</td><td>عامل انشاءات</td><td><a href="assets/files/1735320901.png" target="_blank"><img src="assets/files/1735320901.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                
+                
+                
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=mQlTSE9znpPw')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20411')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20411')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=mQlTSE9znpPw';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20411)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20411';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20411';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20411)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>1</td><td>gYUZp1rfHkxn</td><td>أمانة محافظة جدة</td><td>بلدية ثول</td><td>مجاهد همام عوض محمد الشميري</td><td>2574402570</td><td>ذکر</td><td>اليمن</td><td>460588211767</td><td>عامل تحميل وتنزيل</td><td><a href="assets/files/1736138183.png" target="_blank"><img src="assets/files/1736138183.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=gYUZp1rfHkxn')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20504')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20504')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=gYUZp1rfHkxn';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20504)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20504';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20504';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20504)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr><tr><td>2</td><td>KaXFhU6X4Ho8</td><td>أمانة محافظة جدة</td><td>بلدية ثول</td><td>هاني محمد عبدالله قاسم</td><td>2593301860 </td><td>ذکر</td><td>اليمن</td><td>460588093381</td><td>عامل</td><td><a href="assets/files/1736138360.png" target="_blank"><img src="assets/files/1736138360.png" class="circle-image" alt=""></a></td><td>
+                <!-- Custom dropdown within a table cell -->
+                <div class="dropdown">
+                    <button class="dropbtn">عملیات</button>
+                    <div class="dropdown-content">
+                      <button onclick="copyToClipboard('https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=KaXFhU6X4Ho8')" style="text-align:right;">کپی لینک
+                      </button><button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20502')" style="text-align:right;">لینک کارت سه ساله</button>
+                      <button onclick="copyToClipboard('https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20502')" style="text-align:right;"> لینک کارت یکساله</button>
+                        <button onclick="window.location.href='https://apps.balady-gov-sa.co/Eservices/HealthIssue/PrintedLicenses?uuid=KaXFhU6X4Ho8';" style="text-align:right;">نمایش</button>
+                        <button onclick="update_it(20502)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal" style="text-align:right;">ویرایش</button>
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_001?uuid=20502';" style="text-align:right;">چاپ کارت</button>
+                         
+                         <button onclick="window.location.href='https://balady-gov-sa.co/TCPDF-master/examples/example_002?uuid=20502';" style="text-align:right;"> چاپ کارت یکساله</button>
+                        <button onclick="delete_kar(20502)" style="text-align:right;">حذف</button>
+
+                       
+                    </div>
+                </div>
+            </td></tr></tbody></table></div><div class="dataTable-bottom"><div class="dataTable-info">نمایش 1 الی 50 از 50 سطر</div><nav class="dataTable-pagination"><ul class="dataTable-pagination-list"></ul></nav></div></div></div></div>
+
+    </div>
+  </div>
+</section>
+
+
+<div id="printable" style="overflow: hidden; display: none;">
+  <div style="background-color: white;padding:7px 14px;overflow:auto;position:relative;">
+    <div style="height: 100px;">
+
+      <img src="assets/img/logo.png" style="width:100px;" class="d-inline-block">
+      <h1 class="card-title text-center d-inline-block position-absolute w-100 fs-4" style="left: 0px;padding-right:100px;font-family: system-ui, sans-serif;">سند دستور پرداخت پول شرکت تجارتی بشیر نوید</h1>
+    </div>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>تاریخ</th>
+          <th></th>
+          <th>دفتر</th>
+          <th>پرداخت کننده</th>
+          <th>مبلغ دالری</th>
+          <th>مبلغ افغانی</th>
+          <th>شرح</th>
+        </tr>
+      </thead>
+      <tbody id="myprint">
+
+      </tbody>
+    </table>
+
+    سند هذا بدون مُهر و امضاء مدار اعتبار نیست
+  </div>
+</div>
+
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer id="footer" class="footer">
+  <div class="copyright">
+    © Copyright <strong><span> <a target="_blank">Arif Nasery</a></span></strong>. All Rights Reserved
+  </div>
+  <div class="credits">
+    <!-- Designed by <a href="https://wa.me/93767608687" target="_blank" title="payenda mohammad">MDT</a> -->
+  </div>
+</footer><!-- End Footer -->
+
+<a href="#main" class="back-to-top d-flex align-items-center justify-content-center active"><i class="bi bi-arrow-up-short"></i></a>
+
+<button id="install-button" class="btn btn-info" style="display: none;">Install App</button>
+
+<!-- Vendor JS Files -->
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/bs-select/js/bootstrap-select.js"></script>
+<script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+
+<!-- Template Main JS File -->
+<script src="assets/js/sweetalert.min.js"></script>
+<script src="assets/js/html2pdf.bundle.min.js"></script>
+<script src="assets/js/persian-datepicker.js"></script>
+<script src="assets/js/main.js"></script>
+
+<!-- global datatable -->
+<script>
+  function datatable() {
+    document.querySelectorAll('.datatable').forEach(datatable => {
+      new simpleDatatables.DataTable(datatable);
+    })
+  }
+</script>
+
+<!-- Global Operations -->
+<script>
+  let type;
+  const alertbox = document.querySelector('#alert'),
+    alerttext = document.querySelector('#alert1'),
+    closeH = (func = () => {}) => setTimeout(() => {
+      alertbox.classList.remove('show');
+      alertbox.classList.remove(type);
+      alerttext.innerHTML = ' ';
+      func()
+    }, 3500),
+    alertH = (type, text) => {
+      type = type;
+      alerttext.innerHTML = text;
+      alertbox.classList.add(type, 'show');
+    },
+    sendForm = (fData, func = () => {}) => {
+      $.ajax({
+        url: "server",
+        type: "POST",
+        data: fData,
+        contentType: false,
+        cache: false,
+        processData: false,
+        success: (msg) => {
+          alertH(msg)
+          $("#loader").fadeToggle()
+          if (msg.trim() == "success") {
+            alertH('alert-success', 'اطلاعات موفقانه ثبت سیستم گردید')
+            func(msg)
+            closeH()
+          } else {
+            alertH('alert-danger', msg)
+            closeH()
+          }
+        }
+      });
+    },
+    swalConfirm = (func = () => {}) => {
+      swal({
+        title: "آیا می خواهید اطلاعات را حذف نمایید؟",
+        text: "این اطلاعات پس از حدف قابلیت برگشت را ندارد",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonText: "بلی، مطمئن هستم",
+        cancelButtonText: "نخیر، انصراف میدهم",
+        closeOnConfirm: false,
+        closeOnCancel: false
+      }, function(isConfirm) {
+        if (isConfirm) {
+          func();
+          swal("حذف گردید!", "اطلاعات با موفقیت از سیستم حذف گردید.", "success");
+        } else {
+          swal("انصراف دادید", "اطلاعات شما محفوظ است :)", "error");
+        }
+      });
+    },
+    resetPicker = (id) => {
+      let theText = $('.filter-option-inner-inner').text().trim()
+      $('html body ' + id + ' option').each((index, elem) => {
+        $(elem).removeAttr('selected')
+        if ($(elem).text().trim() == theText) {
+          $(elem).attr('selected', 'selected')
+        }
+      });
+      $('html body ' + id + '').change()
+    },
+    open2pdf = (pdf, mode, h1 = "test") => {
+      $('#loader').fadeToggle()
+      const options = {
+        margin: 0.1,
+        filename: 'pdf.pdf',
+        image: {
+          type: 'svg',
+          quality: 0.98
+        },
+        html2canvas: {
+          scale: 2
+        },
+        jsPDF: {
+          unit: 'in',
+          format: [11.68, 16.52],
+          orientation: mode,
+        }
+      }
+      html2pdf().from(`<html ><head><title>Pdf</title><style>input{color: black !important;}</style></head>
+      <body><h1 style="font-size: 26px;font-weight: 500;color: #012970;font-family: verdana, sans-serif;text-align: center;display:flex;justify-content:space-between;flex-direction:row-reverse;"><span style="font-size:13px;">2025-01-08</span><span>${h1}</span></h1><div style="position:relative;">${pdf}</div></body></html>`).set(options).save();
+      $('#loader').fadeToggle()
+    },
+    delete_data = (id_name, id, table, func) => {
+      $("#loader").fadeToggle()
+      $.ajax({
+        url: "server",
+        type: "POST",
+        data: {
+          delete_gloabl: table,
+          id_name: id_name,
+          id: id
+        },
+        success: (msg) => {
+          $("#loader").fadeToggle()
+          func()
+        }
+      });
+    },
+    update_data = (col, data, id_name, id, table, func) => {
+      $("#loader").fadeToggle()
+      $.ajax({
+        url: "server",
+        type: "POST",
+        data: {
+          update_gloabl: table,
+          id_name: id_name,
+          id: id,
+          col: col,
+          data: data
+        },
+        success: (msg) => {
+          $("#loader").fadeToggle()
+          func()
+        }
+      });
+    },
+    cur_change = (cur_id) => {
+      $.ajax({
+        data: {
+          get_cur_price: cur_id
+        },
+        type: "POST",
+        url: "server",
+        success: (msg) => {
+          document.querySelector('#cur_cost').value = msg
+        }
+      })
+    },
+    change_state = (state, trans_id, func = () => {}) => {
+      $("#loader").fadeToggle()
+      $.ajax({
+        data: {
+          change_trans_state: trans_id,
+          state: state,
+        },
+        type: "POST",
+        url: "server",
+        success: (msg) => {
+          func()
+          $("#loader").fadeToggle()
+        }
+      })
+    };
+</script>
+<!-- on document ready gloabal -->
+
+<script>
+  $(function() {
+    setInterval(() => {
+      loadData();
+    }, 300000);
+    $('.persiandate').datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+
+    load_notify()
+
+    setInterval(() => {
+      load_notify()
+    }, 300000);
+
+    // no autocomplete
+    $('input').attr('autocomplete', 'off')
+
+
+    // active nav
+    const navid = $(`.nav-content a[navid=${$('title').attr('navid')}]`)
+    navid.parents('.nav-item').children('.nav-link').toggleClass('collapsed')
+    navid.parents('.nav-content').toggleClass('show')
+    navid.toggleClass('active')
+    $(`.nav-item a[navid=${$('title').attr('navid')}]`).toggleClass('collapsed')
+
+    document.querySelector('#pagetitle').innerHTML = document.querySelector('title').innerHTML
+  })
+
+  function change_it() {
+    $("#loader").fadeToggle()
+    $.ajax({
+      data: {
+        active_it: 1,
+      },
+      type: "POST",
+      url: "server",
+      success: (msg) => {
+        document.location.reload()
+        $("#loader").fadeToggle()
+      }
+    })
+  }
+</script>
+
+<div class="modal fade" id="modal1" tabindex="-1" data-bs-backdrop="false">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">افزودن کاربر</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <!-- create a mysql database to store this form value :  -->
+        <form id="uploadForm">
+          <div class="row">
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" placeholder="p" name="amana">
+              <label class="form-label fs-7"> الامانة</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" placeholder="p" name="baladia">
+              <label class="form-label fs-7">البلدية</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" placeholder="p" name="name">
+              <label class="form-label fs-7">الاسم</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" placeholder="p" name="raqam_hoia">
+              <label class="form-label fs-7">رقم الهوية</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" placeholder="p" name="gens">
+              <label class="form-label fs-7">الجنس</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" placeholder="p" name="gensia">
+              <label class="form-label fs-7">الجنسية</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" placeholder="p" name="raqam_shahada" id="raqam_shahada1">
+              <label class="form-label fs-7">رقم الشهادة الصحية</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" placeholder="p" name="mehna">
+              <label class="form-label fs-7">المهنة</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" value="1446/7/8" placeholder="p" name="date_first">
+              <label class="form-label fs-7">تاريخ إصدار الشهادة الصحية هجري </label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" placeholder="p" value="2025/01/08" name="date_first_meladi">
+              <label class="form-label fs-7">تاريخ إصدار الشهادة الصحية ميلادي</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" value="1447/7/8" placeholder="p" name="date_last">
+              <label class="form-label fs-7">تاريخ انتهاء الشهادة الصحية هجري</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" placeholder="p" value="2025/12/28" name="date_last_meladi">
+              <label class="form-label fs-7">تاريخ انتهاء الشهادة الصحية ميلادي</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" placeholder="p" name="type_of_barnama">
+              <label class="form-label fs-7">نوع البرنامج التثقيفى</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" placeholder="p" value="1449/7/5" name="date_end2">
+              <label class="form-label fs-7">تاريخ انتهاء البرنامج التثقيفى</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" placeholder="p" name="raqam_rukhsa">
+              <label class="form-label fs-7">رقم رخصة المنشأة</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" placeholder="p" name="esm_mansha">
+              <label class="form-label fs-7">اسم المنشأة</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" placeholder="p" name="raqam_mansha">
+              <label class="form-label fs-7">رقم المنشأة</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" value="الشهادة الصحية الموحدة" placeholder="p" name="text_of_taswir">
+              <label class="form-label fs-7">متن بالای عکس</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2 d-none">
+              <div class="dropdown bootstrap-select"><select name="cart_type" class="selectpicker" data-live-search="true" id="cart_type">
+                <option value="sharqi.png">الدمام</option>
+                <option value="alahsa.jpg">الاحسا</option>
+                <option value="madina.jpg">المدینه منوره</option>
+                <option value="makah.jpg">مکه مکرمه</option>
+                <option value="alreayaz.jpg">الریاض</option>
+                <option value="baladia_ras.png">بلدیه محافظه الرس</option>
+                <option value="jeda.png">جده</option>
+                <option value="hail.PNG">حایل</option>
+
+                <option value="tabok.jpg">تبوک</option>
+                <option value="taif.jpg">طایف</option>
+              </select><button type="button" tabindex="-1" class="btn dropdown-toggle btn-light" data-bs-toggle="dropdown" role="combobox" aria-owns="bs-select-1" aria-haspopup="listbox" aria-expanded="false" title="الدمام" data-id="cart_type"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">الدمام</div></div> </div></button><div class="dropdown-menu "><div class="bs-searchbox"><input type="search" class="form-control" autocomplete="off" role="combobox" aria-label="Search" aria-controls="bs-select-1" aria-autocomplete="list"></div><div class="inner show" role="listbox" id="bs-select-1" tabindex="-1"><ul class="dropdown-menu inner show" role="presentation"></ul></div></div></div>
+              <label class="select-label">نوعیت کارت</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 ">
+              <input type="file" class="form-control form-control-sm" placeholder="p" name="file" accept="image/png,.jpg,.jpeg,.gif">
+              <label class="form-label fs-7">الصورة الرمزية</label>
+            </div>
+
+            <div class="col col-xxl-12 px-2 my-2">
+              <button class="btn btn-success" type="submit">
+                <i class="bi bi-arrow-return-left"></i> ثبت
+              </button>
+            </div>
+
+          </div>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">بستن</button>
+      </div>
+    </div>
+  </div>
+</div><!-- End Vertically centered Modal-->
+<div class="modal fade" id="modal" tabindex="-1" data-bs-backdrop="false">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">افزودن کاربر</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <!-- create a mysql database to store this form value :  -->
+        <form id="uploadForm1">
+          <div class="row">
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="hidden" name="up_id" id="up_id">
+              <input type="text" class="form-control form-control-sm" placeholder="p" id="up_amana" name="up_amana">
+              <label class="form-label fs-7"> الامانة</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" placeholder="p" id="up_baladia" name="up_baladia">
+              <label class="form-label fs-7">البلدية</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" placeholder="p" id="up_name" name="up_name">
+              <label class="form-label fs-7">الاسم</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" placeholder="p" id="up_raqam_hoia" name="up_raqam_hoia">
+              <label class="form-label fs-7">رقم الهوية</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" placeholder="p" id="up_gens" name="up_gens">
+              <label class="form-label fs-7">الجنس</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" placeholder="p" id="up_gensia" name="up_gensia">
+              <label class="form-label fs-7">الجنسية</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" placeholder="p" id="up_raqam_shahada" name="up_raqam_shahada">
+              <label class="form-label fs-7">رقم الشهادة الصحية</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" placeholder="p" id="up_mehna" name="up_mehna">
+              <label class="form-label fs-7">المهنة</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" placeholder="p" id="up_date_first" name="up_date_first">
+              <label class="form-label fs-7">تاريخ إصدار الشهادة الصحية هجري </label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" placeholder="p" id="up_date_first_meladi" name="up_date_first_meladi">
+              <label class="form-label fs-7">تاريخ إصدار الشهادة الصحية ميلادي</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" placeholder="p" id="up_date_last" name="up_date_last">
+              <label class="form-label fs-7">تاريخ انتهاء الشهادة الصحية هجري</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" placeholder="p" id="up_date_last_meladi" name="up_date_last_meladi">
+              <label class="form-label fs-7">تاريخ انتهاء الشهادة الصحية ميلادي</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" placeholder="p" id="up_type_of_barnama" name="up_type_of_barnama">
+              <label class="form-label fs-7">نوع البرنامج التثقيفى</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" placeholder="p" id="up_date_end2" name="up_date_end2">
+              <label class="form-label fs-7">تاريخ انتهاء البرنامج التثقيفى</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" placeholder="p" id="up_raqam_rukhsa" name="up_raqam_rukhsa">
+              <label class="form-label fs-7">رقم رخصة المنشأة</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" placeholder="p" id="up_esm_mansha" name="up_esm_mansha">
+              <label class="form-label fs-7">اسم المنشأة</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" placeholder="p" id="up_raqam_mansha" name="up_raqam_mansha">
+              <label class="form-label fs-7">رقم المنشأة</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2">
+              <input type="text" class="form-control form-control-sm" placeholder="p" id="up_text_of_taswir" name="up_text_of_taswir">
+              <label class="form-label fs-7">متن بالای عکس</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 my-2 d-none">
+              <div class="dropdown bootstrap-select"><select name="up_cart_type" class="selectpicker" data-live-search="true" id="up_cart_type">
+                <option value="sharqi.png">الدمام</option>
+                <option value="alahsa.jpg">الاحسا</option>
+                <option value="madina.jpg">المدینه منوره</option>
+                <option value="makah.jpg">مکه مکرمه</option>
+                <option value="alreayaz.jpg">الریاض</option>
+                <option value="baladia_ras.png">بلدیه محافظه الرس</option>
+                <option value="jeda.png">جده</option>
+                <option value="tabok.jpg">تبوک</option>
+                <option value="taif.jpg">طایف</option>
+                <option value="hail.PNG">حایل</option>
+              </select><button type="button" tabindex="-1" class="btn dropdown-toggle btn-light" data-bs-toggle="dropdown" role="combobox" aria-owns="bs-select-2" aria-haspopup="listbox" aria-expanded="false" title="الدمام" data-id="up_cart_type"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">الدمام</div></div> </div></button><div class="dropdown-menu "><div class="bs-searchbox"><input type="search" class="form-control" autocomplete="off" role="combobox" aria-label="Search" aria-controls="bs-select-2" aria-autocomplete="list"></div><div class="inner show" role="listbox" id="bs-select-2" tabindex="-1"><ul class="dropdown-menu inner show" role="presentation"></ul></div></div></div>
+              <label class="select-label">نوعیت کارت</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 ">
+              <input type="hidden" id="new_photo" name="new_photo">
+              <input type="file" class="form-control form-control-sm" placeholder="p" id="up_file" name="up_file" accept="image/png,.jpg,.jpeg,.gif">
+              <label class="form-label fs-7">الصورة الرمزية</label>
+            </div>
+            <div class="form-outline col-md-12 col-xxl-12 px-2 ">
+              <p class="my-3">عکس قبلی : </p>
+              <img id="per_pic" name="per_pic" style="height: 150px;" alt="">
+            </div>
+            <div class="col col-xxl-12 px-2 my-2">
+              <button class="btn btn-success" type="submit">
+                <i class="bi bi-arrow-return-left"></i> ثبت
+              </button>
+            </div>
+
+          </div>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">بستن</button>
+      </div>
+    </div>
+  </div>
+</div><!-- End Vertically centered Modal-->
+
+
+
+
+
+
+<!-- Custom JS Tags -->
+
+<script>
+  $(function() {
+    loadData()
+  })
+  $('#uploadForm').on('submit', function(e) {
+    e.preventDefault();
+    $("#loader").fadeToggle()
+    sendForm(new FormData(this), (msg) => {
+      $('#up_amana').val('')
+      $('#up_baladia').val('')
+      $('#up_name').val('')
+      $('#up_raqam_hoia').val('')
+      $('#up_gensia').val('')
+      $('#up_raqam_shahada').val('')
+      $('#up_mehna').val('')
+      $('#up_type_of_barnama').val('')
+      $('#up_raqam_rukhsa').val('')
+      $('#up_esm_mansha').val('')
+      $('#up_raqam_mansha').val('')
+      $('#raqam_shahada1').val('')
+      loadData()
+      sethoia()
+    })
+  })
+  function loadData() {
+    $.ajax({
+      data: {
+        load_cuss: 1,
+      },
+      type: "POST",
+      url: "server",
+      success: (msg) => {
+        
+        $('#myTable').html(msg)
+        datatable()
+      }
+    })
+
+  }
+
+  function copyToClipboard(text) {
+    // Create a temporary textarea element to hold the text to copy
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    // Make the textarea non-editable and add it to the DOM
+    textarea.setAttribute('readonly', '');
+    document.body.appendChild(textarea);
+    // Select the text and copy it to the clipboard
+    textarea.select();
+    document.execCommand('copy');
+    // Remove the textarea from the DOM
+    document.body.removeChild(textarea);
+
+    alertH('alert-success', 'اطلاعات موفقانه کاپی  گردید')
+    closeH()
+  }
+
+  function update_it(x) {
+    $.ajax({
+      data: {
+        user_id_for_update: x,
+      },
+      type: "POST",
+      url: "server",
+      success: (msg) => {
+        msg = JSON.parse(msg);
+        //`amana`,`balady`,`name`,`raqam_hoia`,`gens`,`gensia`,`raqam_shahada`,`mehna`,`st_date`,`end_date`,`no_barnama`,`end_date2`,`raqm_rukhsa_mansha`,`raqam_mansha`,`esm_mansha`,`text_onpicture`,`picture`,`first_date_meladi`,`last_date_meladi`,`entry_date`,`cart_type`
+        $('#up_id').val(x)
+        $('#up_amana').val(msg['amana'])
+        $('#up_baladia').val(msg['balady'])
+        $('#up_name').val(msg['name'])
+        $('#up_raqam_hoia').val(msg['raqam_hoia'])
+        $('#up_gens').val(msg['gens'])
+        $('#up_gensia').val(msg['gensia'])
+        $('#up_raqam_shahada').val(msg['raqam_shahada'])
+        $('#up_mehna').val(msg['mehna'])
+        $('#up_date_first').val(msg['st_date'])
+        $('#up_date_first_meladi').val(msg['first_date_meladi'])
+        $('#up_date_last').val(msg['end_date'])
+        $('#up_date_last_meladi').val(msg['last_date_meladi'])
+        $('#up_type_of_barnama').val(msg['no_barnama'])
+        $('#up_date_end2').val(msg['end_date2'])
+        $('#up_raqam_rukhsa').val(msg['raqm_rukhsa_mansha'])
+        $('#up_esm_mansha').val(msg['esm_mansha'])
+        $('#up_raqam_mansha').val(msg['raqam_mansha'])
+        $('#up_text_of_taswir').val(msg['text_onpicture'])
+        $('#per_pic').attr('src', msg['picture']);
+
+      }
+    })
+  }
+  $('#uploadForm1').on('submit', function(e) {
+    e.preventDefault();
+    if ($('#up_file').val() == '') {
+      $('#new_photo').val("no")
+    } else {
+      $('#new_photo').val("yes")
+    }
+    $("#loader").fadeToggle()
+    sendForm(new FormData(this), (msg) => {
+        
+      document.getElementById("uploadForm").reset()
+      loadData()
+    })
+  })
+
+  function sethoia() {
+    $.ajax({
+      data: {
+        send_req: 1,
+      },
+      type: "POST",
+      url: "server",
+      success: (msg) => {
+        $('#raqam_shahada1').val(msg)
+      }
+    })
+  }
+
+  function delete_kar(x) {
+    swal({
+      title: "آیا می خواهید اطلاعات را حذف نمایید؟",
+      text: "این اطلاعات پس از حدف قابلیت برگشت را ندارد",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonText: "بلی، مطمئن هستم",
+      cancelButtonText: "نخیر، انصراف میدهم",
+      closeOnConfirm: false,
+      closeOnCancel: false
+    }, function(isConfirm) {
+      if (isConfirm) {
+        $.ajax({
+          data: {
+            delet_details: x,
+          },
+          type: "POST",
+          url: "server",
+          success: (msg) => {
+            loadData()
+          }
+        })
+        swal("حذف گردید!", "اطلاعات با موفقیت از سیستم حذف گردید.", "success");
+      } else {
+        swal("انصراف دادید", "اطلاعات شما محفوظ است :)", "error");
+      }
+    });
+  }
+</script>
+
+
+
+<div id="veepn-breach-alert"></div><style>@font-face{font-family:FigtreeVF;src:url(chrome-extension://panammoooggmlehahpcjckcncfeffcoi/fonts/FigtreeVF.woff2) format("woff2 supports variations"),url(chrome-extension://panammoooggmlehahpcjckcncfeffcoi/fonts/FigtreeVF.woff2) format("woff2-variations");font-weight:100 1000;font-display:swap}</style></body>
