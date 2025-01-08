@@ -1,0 +1,121 @@
+.form-outline {
+  position: relative;
+}
+
+.form-outline select.form-control {
+  height: 38px;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+.form-outline .form-control {
+  min-height: auto;
+  padding: 0.33em 0.75em;
+  border: 0;
+  font-weight: 600;
+  background: transparent;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.form-outline .form-control ~ .form-label {
+  position: absolute;
+  font-size: 0.8rem;
+  font-weight: 600;
+  top: 0;
+  right: 0.75rem;
+  padding-top: 0.37rem;
+  pointer-events: none;
+  -webkit-transform-origin: 100% 0;
+  transform-origin: 100% 0;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 0;
+}
+
+.form-outline .form-control:focus {
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.form-outline > .form-control::-webkit-placeholder {
+  color: transparent;
+}
+.form-outline > .form-control::-moz-placeholder {
+  color: transparent;
+}
+.form-outline > .form-control::placeholder {
+  color: transparent;
+}
+.form-outline .form-control {
+  border: 1px solid #b6afaf;
+  height: 38px;
+}
+.form-outline > .form-control[type="number"] {
+  direction: rtl !important;
+}
+.form-outline > .form-control:active,
+.form-outline > .form-control:focus,
+.form-control:active,
+.form-control:focus {
+  box-shadow: none;
+  border: 2px solid #1266f1;
+}
+.form-outline .form-control:active ~ .form-label,
+.form-outline .form-control:focus ~ .form-label,
+.form-outline > .form-control:not(:placeholder-shown) ~ label {
+  background-color: white;
+  padding: 7px 3px 0 3px;
+  font-weight: 500;
+  -webkit-transform: translateY(-1rem) translateY(0.1rem) scale(0.8);
+  transform: translateY(-1rem) translateY(0.1rem) scale(0.8);
+  line-height: 16px !important;
+}
+.form-outline .form-control:focus ~ .form-label,
+.form-outline .form-control:active ~ .form-label {
+  color: #1266f1;
+}
+
+.form-outline .form-control.disabled,
+.form-outline .form-control:disabled,
+.form-outline .form-control[readonly] {
+  background-color: #e9ecef;
+}
+.form-outline .form-control.form-control-lg {
+  font-size: 1rem;
+  line-height: 2.15;
+  padding-right: 0.75em;
+  padding-left: 0.75em;
+}
+.form-outline .form-control.form-control-lg ~ .form-label {
+  padding-top: 0.7rem;
+}
+.form-outline .form-control.form-control-lg.active ~ .form-label,
+.form-outline .form-control.form-control-lg:focus ~ .form-label {
+  -webkit-transform: translateY(-1.25rem) translateY(0.1rem) scale(0.8);
+  transform: translateY(-1.25rem) translateY(0.1rem) scale(0.8);
+}
+.form-outline .form-control.form-control-sm {
+  padding: 0.43em 0.99em 0.35em;
+  font-size: 0.775rem;
+  line-height: 1.6;
+}
+.form-outline .form-control.form-control-sm ~ .form-label {
+  padding-top: 0.33rem;
+  font-size: 0.775rem;
+}
+.form-outline .form-control.form-control-sm.active ~ .form-label,
+.form-outline .form-control.form-control-sm:focus ~ .form-label {
+  -webkit-transform: translateY(-0.85rem) translateY(0.1rem) scale(0.8);
+  transform: translateY(-0.85rem) translateY(0.1rem) scale(0.8);
+}
+.form-outline.form-white .form-control {
+  color: #fff;
+}
+.form-outline.form-white .form-control ~ .form-label {
+  color: #fbfbfb;
+}
+
+.form-outline.form-white .form-control:focus ~ .form-label {
+  color: #fff;
+}
