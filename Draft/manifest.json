@@ -1,0 +1,16 @@
+{
+  "short_name": "",
+  "name": "",
+  "icons": [
+    {
+      "src": "assets/img/favicon1.png",
+      "type": "image/png",
+      "sizes": "274x274"
+    }
+    
+  ],
+  "start_url": "https://bn-money.com/",
+  "background_color": "#3367D6",
+  "display": "standalone",
+  "theme_color": "#3367D6"
+}
