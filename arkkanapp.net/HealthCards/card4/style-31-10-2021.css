@@ -1,0 +1,304 @@
+
+/*general css*/
+/*font*/
+
+@import url(https://fonts.googleapis.com/css?family=Lato|Roboto:400,700);
+
+@font-face {
+    font-family: 'Janna LT';
+    src: url('../fonts/Janna LT.eot');
+    src: url('../fonts/Janna LT.eot') format('embedded-opentype'), url('../fonts/Janna LT.ttf') format('truetype'), url('../fonts/Janna LT.svg#Janna LT') format('svg');
+}
+
+
+@font-face {
+    font-family: 'Gerta_Regular';
+    src: url('../fonts/GretaTextArabicRegular.ttf');
+    src: url('../fonts/GretaTextArabicRegular.ttf');
+    src: url('../fonts/GretaTextArabicRegular.ttf?#iefix') format('embedded-opentype'), url('../fonts/GretaTextArabicRegular.ttf') format('woff'), url('../fonts/GretaTextArabicRegular') format("opentype");
+}
+    @font-face {
+    font-family: 'Gerta_Bold';
+    src: url('../fonts/GretaTextArabicBold.ttf');
+    src: url('../fonts/GretaTextArabicBold.ttf');
+    src: url('../fonts/GretaTextArabicBold.ttf?#iefix') format('embedded-opentype'), url('../fonts/GretaTextArabicBold.ttf') format('woff'), url('../fonts/GretaTextArabicBold.ttf') format("opentype");
+}
+    
+    @font-face {
+    font-family: 'Gerta_light';
+    src: url('../fonts/GretaTextArabicLight.ttf');
+    src: url('../fonts/GretaTextArabicLight.ttf');
+    src: url('../fonts/GretaTextArabicLight.ttf?#iefix') format('embedded-opentype'), url('../fonts/GretaTextArabicLight.ttf') format('woff'), url('../fonts/GretaTextArabicLight.ttf') format("opentype");
+}
+    
+    @font-face {
+    font-family: 'Gerta_medium';
+    src: url('../fonts/GretaTextArabicMedium.ttf');
+    src: url('../fonts/GretaTextArabicMedium.ttf');
+    src: url('../fonts/GretaTextArabicMedium.ttf?#iefix') format('embedded-opentype'), url('../fonts/GretaTextArabicMedium.ttf') format('woff'), url('../fonts/GretaTextArabicMedium.ttf') format("opentype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #fff;
+}
+
+.card {
+  width: 106mm;
+  height: 170mm;
+  margin: 50px auto 20px;
+  background-color: #fff;
+  border-radius: 20px;
+ /* box-shadow: #bbb 10px 10px 10px 0;*/
+  border: 2px solid #486b00;
+  overflow: hidden;
+  position: relative;
+}
+.card::after {
+  content: "";
+  background: url(../images/logobg.png);
+  opacity: 0.2;
+  top: 0;
+  left: 0;
+  bottom: 32px;
+  right: 0;
+  position: absolute;
+  z-index: 1;   
+  background-repeat: no-repeat;
+  background-position: bottom center;
+}
+
+.card-no-wm::after {
+    background:#fff;
+}
+
+.logo{
+  /*text-align: center;*/
+  border-bottom: 1px solid #ddd;
+  height: 80px;
+}
+.logo img{
+  width: 60mm;
+  margin: 10px;
+  float: right;
+}
+.logo img.amanah{
+  width: 20mm;
+  float: left;
+  margin-top: 25px;
+}
+.identity{
+  padding: 0 10px;
+  height: 10mm;
+}
+.identity .photo, .identity .qrcode{
+  width: 50%;
+  float: left;
+}
+.identity .photo{
+  text-align: right;
+}
+.identity .qrcode{
+  text-align: left;
+  height: 16mm;
+  line-height: 16mm;
+}
+
+.identity .photo img{
+  width: 120px;
+  height: 120px;
+  background-color: #fff;
+  border: 2px solid #72a900;
+  border-radius: 4px;
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+.identity .qrcode img{
+  width: 32mm;
+  height: 32mm;
+}
+
+.info{
+  padding: 10px 12px 10px;
+}
+
+.info ul{
+  list-style: none;
+  margin-bottom:0;
+}
+
+.info ul li{
+  text-align: right;
+  direction: rtl;
+  font-size: 20px;
+  font-family: 'Janna LT', tahoma, sans-serif;
+  line-height: 8.5mm;
+  font-weight: 600;
+  color: #000;
+}
+.info ul li span.title{
+  display: inline-block;
+  width: 34mm;
+
+}
+
+.footer{
+    text-align: center;
+    direction: rtl;
+    font-size: 20px;
+    font-family: 'Janna LT', tahoma, sans-serif;
+    font-weight: 600;
+    background: #72a900;
+    line-height: 12mm;
+    color: #fff;
+    position: absolute;
+    width: 100%;
+    bottom: -10px;
+}
+@media print{
+  .footer{
+    background: #72a900 !important;
+  }
+}
+
+
+.footer2{
+    text-align: center;
+    direction: rtl;
+    font-size: 20px;
+    font-family: 'Janna LT', tahoma, sans-serif;
+    font-weight: 600;
+    background: red;
+    line-height: 12mm;
+    color: #fff;
+    position: absolute;
+    width: 100%;
+    bottom: -10px;
+}
+@media print{
+  .footer2{
+    background: red !important;
+    color :white !important;
+  }
+}
+
+
+.header {
+    text-align: center;
+    direction: rtl;
+    font-size: 14px;
+    font-family: 'Janna LT', tahoma, sans-serif;
+    line-height: 22px;
+    font-weight: 600;
+    background: #486b00 ;
+    line-height: 45px;
+    color: #fff;
+}
+
+.identity.single .photo{
+  width: auto;
+  float: none;
+}
+.identity.single .photo{
+  text-align: center;
+}
+
+
+
+/*Start Card Back */
+
+.back{
+  border-top: 20px solid #486b00;
+  border-bottom: 20px solid #486b00;
+  position: relative;
+}
+
+.back::before{
+  content: "";
+  opacity: 1;
+  top: 0px;
+  left: -10px;
+  width: 200px;
+  height: 15px;
+  position: absolute;
+  z-index: 1;
+  background: #486b00;
+  transform: skewX(-45deg);
+}
+/*.back::after{
+  content: "";
+  opacity: 1;
+  top: 374px;
+  left: 110px;
+  width: 200px;
+  height: 15px;
+  position: absolute;
+  z-index: 1;
+  background: #486b00;
+  transform: skewX(-45deg);
+}*/
+.back .info{
+  margin-top: 0;
+}
+.back .info ul li{
+  line-height: 22px;
+}
+
+.back .qrcode{
+    padding: 10px;
+    height: 135px;
+    text-align: center;
+    line-height: 115px;
+}
+.back .qrcode img{
+    width: 110px;
+    height: 110px;
+}
+
+.maintitle{
+  text-align:center;
+  font-weight:600;
+  font-family: 'Janna LT', tahoma, sans-serif;
+  font-size:15px;
+
+}
+
+.maintitle h5{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 22px;
+}
+
+/*.maintitle .double-border{
+      display: inline-block;
+  }
+  
+  .maintitle .double-border::before {
+      background: #b9b9b9 none repeat scroll 0 0;
+      content: "";
+      display: block;
+      height: 1.3px;
+  }
+  
+  .maintitle .double-border::before  {
+      width: 15mm;
+  }
+  
+  
+  .maintitle .double-border::before{
+      margin-left: auto;
+      margin-right: auto;
+  }*/
+
+
+
+.btn{
+    font-family: 'Janna LT', tahoma, sans-serif;
+    direction:rtl;
+}
